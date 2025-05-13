@@ -1,0 +1,29 @@
+<form [formGroup]="jobCardForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Job Title</mat-label>
+    <input matInput formControlName="title" required>
+    <mat-error *ngIf="jobCardForm.get('title').hasError('required')">
+      Job Title is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" required></textarea>
+    <mat-error *ngIf="jobCardForm.get('description').hasError('required')">
+      Description is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="jobCardForm.get('dueDate').hasError('required')">
+      Due Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="jobCardForm.invalid">Save</button>
+</form>
