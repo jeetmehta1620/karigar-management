@@ -1,12 +1,25 @@
-<h2>Job Card Detail</h2>
-<div *ngIf="jobCard">
-  <h3>{{ jobCard.title }}</h3>
-  <p><strong>Description:</strong> {{ jobCard.description }}</p>
-  <p><strong>Status:</strong> {{ jobCard.status }}</p>
-  <p><strong>Created On:</strong> {{ jobCard.createdOn | date }}</p>
-  <p><strong>Due Date:</strong> {{ jobCard.dueDate | date }}</p>
-</div>
-<div *ngIf="!jobCard">
-  <p>No job card details available.</p>
-</div>
-<button mat-button (click)="goBack()">Back</button>
+<h2>Job Card Details: {{ jobCard.id }}</h2>
+
+<form (ngSubmit)="saveJobCard()">
+  <label>Karigar:
+    <input type="text" [(ngModel)]="jobCard.karigar" name="karigar" />
+  </label>
+
+  <label>Task:
+    <input type="text" [(ngModel)]="jobCard.task" name="task" />
+  </label>
+
+  <label>Status:
+    <select [(ngModel)]="jobCard.status" name="status">
+      <option>Pending</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select>
+  </label>
+
+  <label>Due Date:
+    <input type="date" [(ngModel)]="jobCard.dueDate" name="dueDate" />
+  </label>
+
+  <button type="submit">Save</button>
+</form>

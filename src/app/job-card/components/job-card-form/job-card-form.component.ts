@@ -1,34 +1,30 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { JobCardService } from '../../services/job-card.service';
-import { JobCard } from '../../models/job-card.model';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-card-form',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './job-card-form.component.html',
   styleUrls: ['./job-card-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class JobCardFormComponent implements OnInit {
-  jobCardForm: FormGroup;
+export class JobCardFormComponent {
+  jobCard = {
+    karigar: '',
+    task: '',
+    status: 'Pending',
+    dueDate: '',
+  };
 
-  constructor(private fb: FormBuilder, private jobCardService: JobCardService) {
-    this.jobCardForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      dueDate: ['', Validators.required],
-      status: ['', Validators.required]
-    });
-  }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-
-  onSubmit(): void {
-    if (this.jobCardForm.valid) {
-      const jobCard: JobCard = this.jobCardForm.value;
-      // this.jobCardService.saveJobCard(jobCard).subscribe(() => {
-      //   // Handle successful save
-      // });
-    }
+  saveJobCard() {
+    console.log('Creating job card:', this.jobCard);
+    // You can POST this to backend here.
+    alert('Job card created!');
+    this.router.navigate(['/job-cards']);
   }
 }

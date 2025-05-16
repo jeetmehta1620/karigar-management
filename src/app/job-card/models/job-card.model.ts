@@ -1,8 +1,10 @@
 export interface JobCard {
-  id: number;
-  title: string;
-  description: string;
-  status: 'pending' | 'in-progress' | 'completed';
-  createdDate: Date;
-  updatedDate: Date;
+  id: string;
+  karigar: string;
+  status: string;
+
+  description?: string;
+  // status: "Pending" | "In-Progress" | "Completed";
+  createdDate?: Date;
+  updatedDate?: Date;
 }
