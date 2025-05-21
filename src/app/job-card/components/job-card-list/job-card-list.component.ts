@@ -12,7 +12,7 @@ import { JobCard } from '../../models/job-card.model';
   styleUrls: ['./job-card-list.component.scss'],
 })
 export class JobCardListComponent implements OnInit {
-  constructor(private jobCardService: JobCardService) {}
+// constructor(private jobCardService: JobCardService) {}
   jobCards: JobCard[] = [];
 
   ngOnInit() {
@@ -21,9 +21,9 @@ export class JobCardListComponent implements OnInit {
       { id: 'JC102', karigar: 'Suresh', status: 'Completed' },
       { id: 'JC103', karigar: 'Mahesh', status: 'Pending' },
     ];
-    this.jobCardService
-      .getJobCards()
-      .subscribe((data) => (this.jobCards = data));
-    console.log('this.data', this.jobCards);
+    // this.jobCardService
+    //   .getJobCards()
+    //   .subscribe((data) => (this.jobCards = data));
+    // console.log('this.data', this.jobCards);
   }
 }
