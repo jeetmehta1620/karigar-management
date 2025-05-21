@@ -1,0 +1,29 @@
+<h2>Create New Job Card</h2>
+
+<form (ngSubmit)="saveJobCard()">
+  <label
+    >Kariiiiigar:
+    <input type="text" [(ngModel)]="jobCard.karigar" name="karigar" required />
+  </label>
+
+  <label
+    >Task:
+    <input type="text" [(ngModel)]="jobCard.task" name="task" required />
+  </label>
+
+  <label
+    >Status:
+    <select [(ngModel)]="jobCard.status" name="status">
+      <option>Pending</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select>
+  </label>
+
+  <label
+    >Due Date:
+    <input type="date" [(ngModel)]="jobCard.dueDate" name="dueDate" />
+  </label>
+
+  <button type="submit">Create</button>
+</form>

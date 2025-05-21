@@ -1,0 +1,23 @@
+<h2>Karigar Card List</h2>
+<button routerLink="/job-cards/new">+ Create New Job Card</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Karigar</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let job of jobCards"
+      [routerLink]="['/job-cards', job.id]"
+      style="cursor: pointer"
+    >
+      <td>{{ job.id }}</td>
+      <td>{{ job.karigar }}</td>
+      <td>{{ job.status }}</td>
+    </tr>
+  </tbody>
+</table>

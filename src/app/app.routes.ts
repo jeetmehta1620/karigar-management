@@ -24,6 +24,13 @@ export const routes: Routes = [
         './job-card/components/job-card-detail/job-card-detail.component'
       ).then((m) => m.JobCardDetailComponent),
   },
+    {
+    path: 'karigar-cards',
+    loadComponent: () =>
+      import(
+        './karigar-card/components/karigar-card-list/karigar-card-list.component'
+      ).then((m) => m.KarigarCardListComponent),
+  },
 
   //   {
   //     path: 'job-cards',
